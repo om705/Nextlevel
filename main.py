@@ -19,20 +19,20 @@ from logger import logging
 import time
 import asyncio
 from pyrogram.types import User, Message
-from config import *
+from  import *
 import sys
 import re
 import os
-import config
-from config import sudo_group, log_channel
+import helper
+from helper import sudo_group, log_channel
 
 batch = []
 
 bot = Client(
     "LOVE",
-    api_id=config.API_ID,
-    api_hash=config.API_HASH,
-    bot_token=config
+    api_id=helper.API_ID,
+    api_hash=helper.API_HASH,
+    bot_token=helper
       
 @bot.on_message(filters.command(["start"]))
 async def start_handler(bot: Client, m: Message):        
