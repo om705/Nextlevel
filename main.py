@@ -1,3 +1,5 @@
+from signal import signal, SIGPIPE, SIG_DFL 
+signal(SIGPIPE,SIG_DFL) 
 from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 import requests
 import json
@@ -17,16 +19,20 @@ from logger import logging
 import time
 import asyncio
 from pyrogram.types import User, Message
+from config import *
 import sys
 import re
 import os
-botStartTime = time.time()
+import config
+from config import sudo_group, log_channel
+
 batch = []
+
 bot = Client(
-    "bot",
-    api_id=api_id,
-    api_hash=api_hash,
-    bot_token=bot_token)
+    "LOVE",
+    api_id=config.API_ID,
+    api_hash=config.API_HASH,
+    bot_token=config
       
 @bot.on_message(filters.command(["start"]))
 async def start_handler(bot: Client, m: Message):        
